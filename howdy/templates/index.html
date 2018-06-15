@@ -3,44 +3,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Howdy!</title>
+        <title>Home</title>
     </head>
     <body>
-        {{ "NEW EMPLOYEE:" }}
-        <form action="/" method="POST">
-            {% csrf_token %}
-            First name:<br>
-            <input name="name_e" type="text" placeholder="Type name"/><br>
-            Last name:<br>
-            <input name="last_name_e" type="text" placeholder="Type lastname"/><br>
-            Pesel:<br>
-            <input name="pesel_e" type="text" placeholder="Type pesel"/><br>
-            Salary:<br>
-            <input name="salary_e" type="number" placeholder="Type salary"/><br>
-            <input type="submit"/>
-        </form>
-        {{ "NEW INCOME:" }}
-        <form action="/" method="POST">
-            {% csrf_token %}
-            From:<br>
-            <input name="sum_i" type="number" placeholder="Type from"/><br>
-            Name:<br>
-             <input name="name_i" type="text" placeholder="Type sum"/><br>
-            Date:<br>
-            <input name="date_i" type="date" placeholder="Type date"/><br>
-            <input type="submit"/>
-        </form>
-        {{ "NEW EXPENDITURE:" }}
-        <form action="/" method="POST">
-            {% csrf_token %}
-            From:<br>
-            <input name="sum_o" type="text" placeholder="Type from"/><br>
-            Name:<br>
-             <input name="name_o" type="number" placeholder="Type sum"/><br>
-            Date:<br>
-            <input name="date_o" type="date" placeholder="Type date"/><br>
-            <input type="submit"/>
-        </form>
+        Welcome to home page!<br/>
+        <a href="/add_to_database.html">Add something to database</a><br>
+        <a href="/manage_employees.html">Manage employees</a><br>
+        <a href="/manage_expenditures.html">Manage expenditures</a><br>
+        <a href="/manage_incomes.html">Manage incomes</a><br>
+
         {% for employee in employees %}
             {{ employee.pesel }} &mdash; {{ employee.first_name }}<br/>
         {% endfor %}

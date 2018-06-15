@@ -30,6 +30,15 @@ class AboutPageView(TemplateView):
 
 
 def index(request):
+    return render(request, 'index.html')
+
+    # elif request.method == "GET":
+    #     return render(request, 'index.html', {'text2': request.GET.get('muisend', 'krowa')})
+    # employees = Employee.objects.all().values('first_name', 'pesel')
+    # return render(request, 'index.html', {'text': sent, 'employees': employees})
+
+
+def add_to_database(request):
     if request.method == "POST":
         name_e = request.POST.get('name_e')
         last_name_e = request.POST.get('last_name_e')
@@ -56,10 +65,17 @@ def index(request):
             outcome = Outcome(sum=sum_o, date=date_o, name=name_o)
             outcome.save()
 
-        employees = Employee.objects.all().values('first_name', 'pesel')
-        return render(request, 'index.html', {'text': sent, 'employees': employees})
+    return render(request, 'add_to_database.html')
 
-    # elif request.method == "GET":
-    #     return render(request, 'index.html', {'text2': request.GET.get('muisend', 'krowa')})
-    # employees = Employee.objects.all().values('first_name', 'pesel')
-    # return render(request, 'index.html', {'text': sent, 'employees': employees})
+
+def manage_employees(request):
+    return render(request, 'manage_employees.html')
+
+
+def manage_expenditures(request):
+    return render(request, 'manage_expenditures.html')
+
+
+def manage_incomes(request):
+    return render(request, 'manage_incomes.html')
+
