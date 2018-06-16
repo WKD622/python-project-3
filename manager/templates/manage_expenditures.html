@@ -7,7 +7,7 @@
     <body>
         <a href="/see_all_expenditures.html">See all expenditures</a><br>
         <a href="/">Back</a><br>
-        Last 5 incomes:<br>
+        Last 5 expenditures:<br>
         {% for expenditure in expenditures %}
             date: {{ expenditure.date }} | name: {{ expenditure.name }} | sum: {{ expenditure.sum }}  <br/>
         {% endfor %}
