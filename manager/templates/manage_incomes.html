@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Manage incomes</title>
+    </head>
+    <body>
+        <a href="/see_all_incomes.html">See all incomes</a><br>
+        <a href="/">Back</a><br>
+        Last 5 incomes:<br>
+        {% for income in incomes %}
+            date: {{ income.date }} | name: {{ income.name }} | sum: {{ income.sum }}  <br/>
+        {% endfor %}
+        Sum of all incomes:<br>
+        {{ sum }}
+    </body>
+</html>

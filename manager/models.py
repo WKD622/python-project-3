@@ -7,7 +7,9 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     pesel = models.CharField(max_length=11)
+    position = models.CharField(max_length=50, blank=True)
     salary = models.IntegerField(null=True)
+
 
 
 class Income(models.Model):

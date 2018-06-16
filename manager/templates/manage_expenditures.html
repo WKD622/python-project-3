@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Manage expenditures</title>
+    </head>
+    <body>
+        <a href="/see_all_expenditures.html">See all expenditures</a><br>
+        <a href="/">Back</a><br>
+        Last 5 incomes:<br>
+        {% for expenditure in expenditures %}
+            date: {{ expenditure.date }} | name: {{ expenditure.name }} | sum: {{ expenditure.sum }}  <br/>
+        {% endfor %}
+        Sum of all expenditures:<br>
+        {{ sum }}
+    </body>
+</html>

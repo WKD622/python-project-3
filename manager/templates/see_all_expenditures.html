@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>See all expenditures</title>
+    </head>
+    <body>
+       <a href="/manage_expenditures.html">Back</a><br>
+        {% for expenditure in expenditures %}
+            date: {{ expenditure.date }} | name: {{ expenditure.name }} | sum: {{ expenditure.sum }}  <br/>
+        {% endfor %}
+    </body>
+</html>

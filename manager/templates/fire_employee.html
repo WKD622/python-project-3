@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Fire employee</title>
+    </head>
+    <body>
+    {{ "TYPE EMPLOYEE PESEL TO FIRE:" }}
+        <form action="/fire_employee.html" method="POST">
+            {% csrf_token %}
+            <input name="pesel_e" type="text" placeholder="Type pesel"/><br>
+            <input type="submit"/>
+        </form>
+        <a href="/manage_employees.html">Back</a><br>
+    </body>
+</html>

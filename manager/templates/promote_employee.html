@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Promote employee</title>
+    </head>
+    <body>
+    {{ "PROMOTE EMPLOYEE:" }}
+        <form action="/promote_employee.html" method="POST">
+            {% csrf_token %}
+            Pesel:<br>
+            <input name="pesel_e" type="text" placeholder="Type pesel"/><br>
+            New salary:<br>
+            <input name="salary_e" type="number" placeholder="Type new salary"/><br>
+            <input type="submit"/>
+        </form>
+        <a href="/manage_employees.html">Back</a><br>
+    </body>
+</html>

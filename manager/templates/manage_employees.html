@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Manage employees</title>
+    </head>
+    <body>
+        <a href="/see_all_employees.html">See all employees</a><br>
+        <a href="/promote_employee.html">Promote/Demote employee</a><br>
+        <a href="/fire_employee.html">Fire employee</a><br>
+        <a href="/">Back</a><br>
+        Top 5 earning employees:<br>
+        {% for employee in employees %}
+            {{ employee.first_name }} {{ employee.last_name }} | pesel: {{ employee.pesel }} | salary: {{ employee.salary }} | position: {{employee.position}} <br/>
+        {% endfor %}
+        Summary cost of all salaries:<br>
+        {{cost}}
+    </body>
+</html>

@@ -1,4 +1,3 @@
-<!-- howdy/templates/index.html -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,9 +10,5 @@
         <a href="/manage_employees.html">Manage employees</a><br>
         <a href="/manage_expenditures.html">Manage expenditures</a><br>
         <a href="/manage_incomes.html">Manage incomes</a><br>
-
-        {% for employee in employees %}
-            {{ employee.pesel }} &mdash; {{ employee.first_name }}<br/>
-        {% endfor %}
     </body>
 </html>

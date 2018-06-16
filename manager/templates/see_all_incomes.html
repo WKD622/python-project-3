@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>See all incomes</title>
+    </head>
+    <body>
+       <a href="/manage_incomes.html">Back</a><br>
+        {% for income in incomes %}
+            date: {{ income.date }} | name: {{ income.name }} | sum: {{ income.sum }}  <br/>
+        {% endfor %}
+    </body>
+</html>
