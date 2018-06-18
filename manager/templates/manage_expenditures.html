@@ -5,13 +5,42 @@
         <title>Manage expenditures</title>
     </head>
     <body>
+        NEW EXPENDITURE:
+        <form action="/manage_expenditures.html" method="POST">
+            {% csrf_token %}
+            To:<br>
+            <input name="name_o" type="text" placeholder="Type name"/><br>
+            Sum:<br>
+            <input name="sum_o" type="number" placeholder="Type sum"/><br>
+            Date:<br>
+            <input name="date_o" type="date" placeholder="Type date"/><br>
+            <input type="submit"/><br>
+        </form>
+        SEARCH FOR EXPENDITURE BY NAME:
+        <form action="/search_expenditures.html" method="POST">
+            {% csrf_token %}
+            Name:<br>
+            <input name="name" type="text" placeholder="Type name"/><br>
+            <input type="submit"/><br>
+        </form>
+        SEARCH FOR EXPENDITURE BY DATE:
+        <form action="/search_expenditures.html" method="POST">
+            {% csrf_token %}
+            Date:<br>
+            <input name="date" type="date" placeholder="Type date"/><br>
+            <input type="submit"/><br>
+        </form>
         <a href="/see_all_expenditures.html">See all expenditures</a><br>
         <a href="/">Back</a><br>
-        Last 5 expenditures:<br>
+        LAST 10 EXPENDITURES:<br>
         {% for expenditure in expenditures %}
             date: {{ expenditure.date }} | name: {{ expenditure.name }} | sum: {{ expenditure.sum }}  <br/>
         {% endfor %}
-        Sum of all expenditures:<br>
-        {{ sum }}
+        SUM OF EXPENDITURES FOR LAST 7 DAYS:<br>
+        {{ sum_week }}<br>
+        SUM OF EXPENDITURES FOR LAST 30 DAYS:<br>
+        {{ sum_month }}<br>
+        SUM OF ALL EXPENDITURES:<br>
+        {{ sum }}<br>
     </body>
 </html>

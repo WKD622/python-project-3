@@ -5,7 +5,7 @@
         <title>Promote employee</title>
     </head>
     <body>
-    {{ "PROMOTE EMPLOYEE:" }}
+    PROMOTE EMPLOYEE
         <form action="/promote_employee.html" method="POST">
             {% csrf_token %}
             Pesel:<br>
@@ -14,6 +14,8 @@
             <input name="salary_e" type="number" placeholder="Type new salary"/><br>
             <input type="submit"/>
         </form>
+        <a href="/see_all_employees.html">See all employees</a><br>
         <a href="/manage_employees.html">Back</a><br>
+        <a href="/">Home</a><br>
     </body>
 </html>

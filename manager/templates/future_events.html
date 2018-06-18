@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Future events</title>
+    </head>
+    <body>
+        <a href="/events.html">Back</a><br>
+        <a href="/">Home</a><br>
+        Future events:<br>
+        {% for event in future %}
+           date: {{ event.date }} | time: {{ event.time }} | name: {{ event.name }} | description: {{ event.description }}  <br/>
+        {% endfor %}
+    </body>
+</html>

@@ -6,6 +6,7 @@
     </head>
     <body>
        <a href="/manage_incomes.html">Back</a><br>
+       <a href="/">Home</a><br>
         {% for income in incomes %}
             date: {{ income.date }} | name: {{ income.name }} | sum: {{ income.sum }}  <br/>
         {% endfor %}

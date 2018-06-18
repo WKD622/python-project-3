@@ -5,15 +5,30 @@
         <title>Manage employees</title>
     </head>
     <body>
+        NEW EMPLOYEE:
+        <form action="/manage_employees.html" method="POST">
+            {% csrf_token %}
+            First name:<br>
+            <input name="name_e" type="text" placeholder="Type first name"/><br>
+            Last name:<br>
+            <input name="last_name_e" type="text" placeholder="Type last name"/><br>
+            Pesel:<br>
+            <input name="pesel_e" type="text" placeholder="Type pesel"/><br>
+            Salary:<br>
+            <input name="salary_e" type="number" placeholder="Type salary"/><br>
+            Position:<br>
+            <input name="position_e" type="text" placeholder="Type position"/><br>
+            <input type="submit"/><br>
+        </form>
         <a href="/see_all_employees.html">See all employees</a><br>
         <a href="/promote_employee.html">Promote/Demote employee</a><br>
         <a href="/fire_employee.html">Fire employee</a><br>
         <a href="/">Back</a><br>
-        Top 5 earning employees:<br>
+        TOP 5 EARNING EMPLOYEES:<br>
         {% for employee in employees %}
             {{ employee.first_name }} {{ employee.last_name }} | pesel: {{ employee.pesel }} | salary: {{ employee.salary }} | position: {{employee.position}} <br/>
         {% endfor %}
-        Summary cost of all salaries:<br>
+        SUMMARY COST OF ALL SALARIES:<br>
         {{cost}}
     </body>
 </html>

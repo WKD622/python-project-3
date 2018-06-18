@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Events</title>
+    </head>
+    <body>
+        ADD EVENT:
+        <form action="/events.html" method="POST">
+            {% csrf_token %}
+            Date:<br>
+            <input name="date_e" type="date" placeholder="Type date"/><br>
+            Time:<br>
+            <input name="time_e" type="time" placeholder="Type time"/><br>
+            Name:<br>
+            <input name="name_e" type="text" placeholder="Type name"/><br>
+            Description:<br>
+            <input name="description_e" type="text" placeholder="Type description"/><br>
+            <input type="submit"/><br>
+        </form>
+        <a href="/future_events.html">Your future events</a><br>
+        <a href="/all_events.html">All your events</a><br>
+        <a href="/">Back</a><br>
+        {% for event in next %}
+        YOU HAVE NEXT EVENT {{ event.name }} AT {{ event.time }}: {{ event.description }}<br>
+        {% endfor %}
+        COMING EVENTS FOR TODAY: <br>
+        {% for event in today %}
+           time: {{ event.time }} | name: {{ event.name }} | description: {{ event.description }}  <br/>
+        {% endfor %}
+        YOUR EVENTS FOR TOMORROW:<br>
+        {% for event in tomorrow %}
+           date: {{ event.date }} | time: {{ event.time }} | name: {{ event.name }} | description: {{ event.description }}  <br/>
+        {% endfor %}
+    </body>
+</html>

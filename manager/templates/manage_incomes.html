@@ -5,13 +5,28 @@
         <title>Manage incomes</title>
     </head>
     <body>
+        NEW INCOME:
+        <form action="/manage_incomes.html" method="POST">
+            {% csrf_token %}
+            From:<br>
+            <input name="name_i" type="text" placeholder="Type name"/><br>
+            Sum:<br>
+            <input name="sum_i" type="number" placeholder="Type sum"/><br>
+            Date:<br>
+            <input name="date_i" type="date" placeholder="Type date"/><br>
+            <input type="submit"/>
+        </form>
         <a href="/see_all_incomes.html">See all incomes</a><br>
         <a href="/">Back</a><br>
-        Last 5 incomes:<br>
+        LAST 10 INCOMES:<br>
         {% for income in incomes %}
             date: {{ income.date }} | name: {{ income.name }} | sum: {{ income.sum }}  <br/>
         {% endfor %}
-        Sum of all incomes:<br>
-        {{ sum }}
+        SUM OF INCOMES FOR LAST 7 DAYS:<br>
+        {{ sum_week }}<br>
+        SUM OF INCOMES FOR LAST 30 DAYS:<br>
+        {{ sum_month }}<br>
+        SUM OF ALL INCOMES:<br>
+        {{ sum }}<br>
     </body>
 </html>
