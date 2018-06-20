@@ -35,7 +35,7 @@ def manage_employees(request):
         pesel_e = request.POST.get('pesel_e')
         salary_e = request.POST.get('salary_e')
         position_e = request.POST.get('position_e')
-        if name_e is not None and last_name_e is not None and pesel_e is not None and salary_e is not None and position_e is not None:
+        if None or "" not in [name_e, last_name_e, pesel_e, salary_e, position_e]:
             employee = Employee(first_name=name_e, last_name=last_name_e, pesel=pesel_e, salary=salary_e,
                                 position=position_e)
             employee.save()
@@ -50,7 +50,7 @@ def manage_expenditures(request):
         sum_o = request.POST.get('sum_o')
         name_o = request.POST.get('name_o')
         date_o = request.POST.get('date_o')
-        if name_o is not None and sum_o is not None and date_o is not None:
+        if None or "" not in [name_o, sum_o, date_o]:
             outcome = Outcome(sum=sum_o, date=date_o, name=name_o)
             outcome.save()
 
@@ -150,10 +150,23 @@ def search_expenditures(request):
     if request.method == "POST":
         name = request.POST.get('name')
         date = request.POST.get('date')
-        if name is not None:
+        if name is not None or "":
             by_name = Outcome.objects.filter(name=name)
             return render(request, 'search_expenditures.html', {'to_view': by_name})
-        elif date is not None:
+        elif date is not None or "":
             by_date = Outcome.objects.filter(date=date)
             return render(request, 'search_expenditures.html', {'to_view': by_date})
     return render(request, 'search_expenditures.html')
+
+
+def search_incomes(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+        if name is not None or "":
+            by_name = Income.objects.filter(name=name)
+            return render(request, 'search_incomes.html', {'to_view': by_name})
+        elif date is not None or "":
+            by_date = Income.objects.filter(date=date)
+            return render(request, 'search_incomes.html', {'to_view': by_date})
+    return render(request, 'search_incomes.html')

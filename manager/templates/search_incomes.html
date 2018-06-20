@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <a href="/manage_incomes.html">Back</a><br>
+    <a href="/">Home</a><br>
+    RESULTS:<br>
+        {% for income in to_view %}
+            {{ income.date }} {{ income.time }} | pesel: {{ income.name }} | salary: {{ income.description }}<br/>
+        {% endfor %}
+</body>
+</html>

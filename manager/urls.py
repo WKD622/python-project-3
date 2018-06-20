@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^all_events\.html', views.all_events),
     url(r'^future_events\.html', views.future_events),
     url(r'^credits\.html', views.credits),
-    url(r'^search_expenditures\.html', views.search_expenditures)
+    url(r'^search_expenditures\.html', views.search_expenditures),
+    url(r'^search_incomes\.html', views.search_incomes)
 ]

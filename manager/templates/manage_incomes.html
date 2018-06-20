@@ -16,6 +16,20 @@
             <input name="date_i" type="date" placeholder="Type date"/><br>
             <input type="submit"/>
         </form>
+        SEARCH FOR INCOME BY NAME:
+        <form action="/search_incomes.html" method="POST">
+            {% csrf_token %}
+            Name:<br>
+            <input name="name" type="text" placeholder="Type name"/><br>
+            <input type="submit"/><br>
+        </form>
+        SEARCH FOR INCOME BY DATE:
+        <form action="/search_incomes.html" method="POST">
+            {% csrf_token %}
+            Date:<br>
+            <input name="date" type="date" placeholder="Type date"/><br>
+            <input type="submit"/><br>
+        </form>
         <a href="/see_all_incomes.html">See all incomes</a><br>
         <a href="/">Back</a><br>
         LAST 10 INCOMES:<br>
