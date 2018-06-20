@@ -9,7 +9,7 @@
     <a href="/">Home</a><br>
     RESULTS:<br>
         {% for expenditure in to_view %}
-            {{ expenditure.date }} {{ expenditure.time }} | pesel: {{ expenditure.name }} | salary: {{ expenditure.description }}<br/>
+            {{ expenditure.date }} {{ expenditure.time }} | name: {{ expenditure.name }} | sum: {{ expenditure.sum }}<br/>
         {% endfor %}
 </body>
 </html>
