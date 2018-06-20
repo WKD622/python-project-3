@@ -92,7 +92,7 @@ def fire_employee(request):
     return render(request, 'fire_employee.html')
 
 
-def promote_employee(request):
+def promote_demote_employee(request):
     if request.method == "POST":
         pesel_e = request.POST.get('pesel_e')
         salary_e = request.POST.get('salary_e')
@@ -101,7 +101,7 @@ def promote_employee(request):
             promotion.salary = salary_e
             promotion.save()
 
-    return render(request, 'promote_employee.html')
+    return render(request, 'promote_demote_employee.html')
 
 
 def see_all_incomes(request):

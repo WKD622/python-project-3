@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^manage_expenditures\.html', views.manage_expenditures),
     url(r'^see_all_employees\.html', views.see_all_employees),
     url(r'^fire_employee\.html', views.fire_employee),
-    url(r'^promote_employee\.html', views.promote_employee),
+    url(r'^promote_demote_employee\.html', views.promote_demote_employee),
     url(r'^see_all_incomes\.html', views.see_all_incomes),
     url(r'^see_all_expenditures\.html', views.see_all_expenditures),
     url(r'^events.html', views.events),
