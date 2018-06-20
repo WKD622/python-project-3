@@ -35,7 +35,7 @@ def manage_employees(request):
         pesel_e = request.POST.get('pesel_e')
         salary_e = request.POST.get('salary_e')
         position_e = request.POST.get('position_e')
-        if None or "" not in [name_e, last_name_e, pesel_e, salary_e, position_e]:
+        if None and "" not in [name_e, last_name_e, pesel_e, salary_e, position_e]:
             employee = Employee(first_name=name_e, last_name=last_name_e, pesel=pesel_e, salary=salary_e,
                                 position=position_e)
             employee.save()
@@ -67,7 +67,7 @@ def manage_incomes(request):
         sum_i = request.POST.get('sum_i')
         name_i = request.POST.get('name_i')
         date_i = request.POST.get('date_i')
-        if name_i is not None and sum_i is not None and date_i is not None:
+        if None or "" not in [name_i, sum_i, date_i]:
             income = Income(sum=sum_i, date=date_i, name=name_i)
             income.save()
 
@@ -96,9 +96,10 @@ def promote_employee(request):
     if request.method == "POST":
         pesel_e = request.POST.get('pesel_e')
         salary_e = request.POST.get('salary_e')
-        promotion = Employee.objects.get(pesel=pesel_e)
-        promotion.salary = salary_e
-        promotion.save()
+        if None and "" not in [salary_e, pesel_e]:
+            promotion = Employee.objects.get(pesel=pesel_e)
+            promotion.salary = salary_e
+            promotion.save()
 
     return render(request, 'promote_employee.html')
 
@@ -120,7 +121,7 @@ def events(request):
         time_e = request.POST.get('time_e')
         date_e = request.POST.get('date_e')
 
-        if name_e is not None and time_e is not None and date_e is not None:
+        if None and "" not in [name_e, time_e, date_e]:
             event = Event(name=name_e, description=description_e, time=time_e, date=date_e)
             event.save()
 
@@ -150,10 +151,10 @@ def search_expenditures(request):
     if request.method == "POST":
         name = request.POST.get('name')
         date = request.POST.get('date')
-        if name is not None or "":
+        if name is not None and name != "":
             by_name = Outcome.objects.filter(name=name)
             return render(request, 'search_expenditures.html', {'to_view': by_name})
-        elif date is not None or "":
+        elif date is not None and date != "":
             by_date = Outcome.objects.filter(date=date)
             return render(request, 'search_expenditures.html', {'to_view': by_date})
     return render(request, 'search_expenditures.html')
@@ -163,10 +164,10 @@ def search_incomes(request):
     if request.method == "POST":
         name = request.POST.get('name')
         date = request.POST.get('date')
-        if name is not None or "":
+        if name is not None and name != "":
             by_name = Income.objects.filter(name=name)
             return render(request, 'search_incomes.html', {'to_view': by_name})
-        elif date is not None or "":
+        elif date is not None and date != "":
             by_date = Income.objects.filter(date=date)
             return render(request, 'search_incomes.html', {'to_view': by_date})
     return render(request, 'search_incomes.html')

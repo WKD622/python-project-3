@@ -37,10 +37,10 @@
             date: {{ income.date }} | name: {{ income.name }} | sum: {{ income.sum }}  <br/>
         {% endfor %}
         SUM OF INCOMES FOR LAST 7 DAYS:<br>
-        {{ sum_week }}<br>
+        {{ sum_week.sum__sum }}<br>
         SUM OF INCOMES FOR LAST 30 DAYS:<br>
-        {{ sum_month }}<br>
+        {{ sum_month.sum__sum }}<br>
         SUM OF ALL INCOMES:<br>
-        {{ sum }}<br>
+        {{ sum.sum__sum }}<br>
     </body>
 </html>

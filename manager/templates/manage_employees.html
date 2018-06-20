@@ -29,6 +29,6 @@
             {{ employee.first_name }} {{ employee.last_name }} | pesel: {{ employee.pesel }} | salary: {{ employee.salary }} | position: {{employee.position}} <br/>
         {% endfor %}
         SUMMARY COST OF ALL SALARIES:<br>
-        {{cost}}
+        {{cost.salary__sum}}
     </body>
 </html>
